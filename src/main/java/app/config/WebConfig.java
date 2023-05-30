@@ -23,7 +23,6 @@ import javax.sql.DataSource;
 import java.util.Objects;
 import java.util.Properties;
 
-
 @Configuration
 @ComponentScan("app")
 @PropertySource("classpath:db.properties")
@@ -65,7 +64,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 
-
     @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -80,10 +78,8 @@ public class WebConfig implements WebMvcConfigurer {
         Properties properties = new Properties();
         properties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
         properties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("hibernate.hbm2ddl.auto"));
-        properties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
         return properties;
     }
-
 
     @Bean
     public LocalContainerEntityManagerFactoryBean getEntityManagerFactory() {
